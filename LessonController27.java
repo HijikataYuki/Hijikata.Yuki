@@ -27,12 +27,12 @@ public class LessonController27 {
 
 		StringBuilder out = new StringBuilder();
 
-		int array[]= {0,0,0,0,0,0,0,0,0,0};
+		int array[]= new int[10];
 		int a = 100;             // 乱数生成用
 		int	b;						// 乱数値
 		int box = 0;                         // 仮格納用
-		
-		
+
+
 		out.append("↓乱数生成と格納");
 		out.append("<br/>");
 
@@ -49,6 +49,8 @@ public class LessonController27 {
 
 
 		//ソートが完了するまでのループ
+
+		//2以上の間は実行する、1以下で終了
 		for (int fin=array.length; fin>=2; fin--) {
 
 			//すべての数字を回るループ
@@ -56,9 +58,9 @@ public class LessonController27 {
 
 				//前の数字と比較して並び替える判定
 				if (array[i-1] > array[i]) {
-					box = array[i];
-					array[i] = array[i-1];
-					array[i-1] = box;
+					box = array[i]; //手前の数字を箱へ格納
+					array[i] = array[i-1];  //奥の数字を手前へ
+					array[i-1] = box;  //箱から奥の数字へ元・手前の数字を格納(入れ替え完了)
 				}
 			}
 
@@ -73,12 +75,12 @@ public class LessonController27 {
 		}
 		return out.toString();
 	}
-	
+
 	//乱数生成用メソッド
 	public int subMethod(int val) {
-		int c=val;                 
+		int c=val;
 		c = rnd.nextInt(val);
 		return c;
 	}
-	
+
 }
